@@ -48,6 +48,23 @@ def add(num1, num2):
 
 add(20, 20)
 
+#Real time example
+
+import datetime
+
+def timecalc(func):
+    def wrapper():
+        start = datetime.datetime.now()
+        print(start)
+        func()
+        end = datetime.datetime.now()
+        print(end)
+    return wrapper
+
+@timecalc
+def add():
+    print(100 + 200)
+add()
 
 # Where it will usefull
     # Logging
