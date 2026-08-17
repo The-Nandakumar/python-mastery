@@ -33,6 +33,16 @@ finally:
 # else: Executes if no exception occurs
 # finally: Executes regardless of whether an exception occurs or not
 
+
+# Multiple exception
+try:
+    a = int(input("Enter first number: "))
+    b = int(input("Enter second number: "))
+    print(a / b)
+
+except (ValueError, ZeroDivisionError) as e:
+    print("Error:", e)
+    
 # Catching any exception 
 try:
     x = 10 / 0
