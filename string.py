@@ -76,7 +76,7 @@ print(config)
 # you can also control how many replacements happen:
 text.replace("up","UP",1)
 
-# 5.4 split()
+# 5.4 split() and splitlines()
 # split() converts a string into a list
 command = "show ip interface brief"
 words = command.split()
@@ -90,4 +90,95 @@ print(parts)
 
 # Output: ['10', '1', '1', '1']
 
+output = """interface Gi0/1
+interface Gi0/2
+interface Gi0/3"""
+
+lines = output.splitlines()
+
+# Output: 
+# [
+#     "interface Gi0/1",
+#     "interface Gi0/2",
+#     "interface Gi0/3"
+# ]
+
+# splitlines() is better than split("\n") because splitlines() handles different line-ending conventions properly
+
 # 5.5 join()
+# Opposite of split()
+# join() combines multiple strings into one string
+
+parts = ["show", "ip", "interface", "brief"]
+command = " ".join(parts)
+print(command)
+
+# Output: show ip interface brief
+
+interfaces = ["Gi0/1", "Gi0/2", "Gi0/3"]
+results = ", ".join(interfaces)
+print(results)
+
+# Output: Gi0/1, Gi0/2, Gi0/3
+
+# 5.6 in
+# checks whether something exists inside a string
+output = "Interface GigabitEthernet0/1 is up"
+if "is up" in output:
+    print("Interface is operational")
+
+# 5.7 startswith() and endswith()
+# Checks how a string begins or ends
+
+interface = "GigabitEthernet0/1"
+print(interface.startswith("Giga"))
+
+# Output: True
+
+filename = "router_config.txt"
+if filename.endswith(".txt"):
+    print("Text file")
+
+# 5.8 find() and index()
+# find() used to find the position of text
+text = "Interface GigabitEthernet0/1"
+position = text.find("GigabitEthernet")
+print(position)
+
+# Output: 10
+ind = text.index("GigabitEthernet")
+print(ind)
+# index() raises an exception if it doesn't exist.
+
+# 5.9 count()
+# count() tells you how many times something appears
+output = """
+interface Gi0/1
+interface Gi0/2
+interface Gi0/3
+"""
+
+print(output.count("interface"))
+
+# Output: 3
+
+# 5.10 String validation methods
+# Python provides methods that answer questions about the contents of a string
+text.isalpha()
+text.isdigit()
+text.isalnum()
+text.isspace()
+text.isupper()
+text.islower()
+
+# 5.11 partition()
+# partition() splits a string into exactly three parts
+text = "hostname:router-01"
+result = text.partition(":")
+print(result)
+
+# Output: ('hostname', ':', 'router-01')
+# This can be cleaner than split() when you expect one seperator 
+
+key, separator, value = text.partition(":")
+# Why useful: Processing simple key:value formats
