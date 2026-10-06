@@ -1,5 +1,5 @@
 # Parameter
-# A parameter is a variable defined in a function's definition. It acts as a placeholder for the value the function will receive. 
+# A parameter is a variable defined in a function's definition. It acts as a placeholder for the value the function will receive.
 def connect_device(ip):
     print(f"Connecting to {ip}")
 
@@ -105,4 +105,3 @@ connect(**device) # Equivalent to connect(ip="10.1.1.1",username="admin",port=22
 # Parameter order rules
 def function(required, optional=10, *args, **kwargs):
     pass
-
